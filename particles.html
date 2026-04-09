@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NebulaHand - Dual Hand Control</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <div class="loading-text">Initializing AI & Graphics...</div>
+    </div>
+
+    <!-- Hand Tracking Cursors -->
+    <div id="cursor-left" class="hand-cursor left-hand"></div>
+    <div id="cursor-right" class="hand-cursor right-hand"></div>
+
+    <!-- Control Panel -->
+    <div id="ui-panel">
+        <div class="panel-header">
+            <h3>NebulaHand</h3>
+            <div class="live-indicator">● Live</div>
+        </div>
+        
+        <div class="control-group">
+            <label>Universe Template</label>
+            <div class="btn-group">
+                <button id="btn-saturn" class="active" data-template="saturn">Saturn</button>
+                <button id="btn-galaxy" data-template="galaxy">Galaxy</button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Particle Color</label>
+            <div class="color-wrapper">
+                <input type="color" id="color-picker" value="#00ffff">
+            </div>
+        </div>
+
+        <div class="status-box">
+            <div id="status-text">Waiting for hands...</div>
+            <div class="guide-text">
+                👋 <b>Left Hand</b>: Move to Rotate<br>
+                👌 <b>Right Hand</b>: Pinch/Open to Zoom
+            </div>
+        </div>
+    </div>
+
+    <!-- Webcam Feed (Mirrored) -->
+    <video class="input_video" playsinline></video>
+    
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Main Application Logic -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

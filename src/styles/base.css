@@ -1,0 +1,36 @@
+:root {
+    --primary: #6c5ce7;
+    --accent: #00ffff;
+    --secondary: #d63031;
+    --glass: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.15);
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #050505;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    user-select: none;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
