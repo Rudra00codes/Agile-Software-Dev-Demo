@@ -1,4 +1,5 @@
-# NebulaHand Particles
+# NebulaHand Particles (ASD practical)
+
 
 A browser-based interactive particle universe powered by Three.js and controlled by MediaPipe hand tracking.
 
